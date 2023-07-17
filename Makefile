@@ -4,9 +4,9 @@ LDFLAGS = -ludev
 
 OBJS = main.o ./device/device.o
 
-all: app 
+all: usbb 
 
-app: $(OBJS)
+usbb: $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $@ $(LDFLAGS)
 
 %.o: %.c
