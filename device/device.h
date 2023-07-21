@@ -19,6 +19,6 @@
 //initialise the udev library that will be used to get the list of all required devices
 extern struct udev_device** get_udev_devices(const char *name);
 //filter only the ACM ports
-extern char** get_ports(const char* port_type, struct udev_device** entry, uint8_t* size); 
+extern char** get_ports(const char* port_type, struct udev_device** entry, char** ports, uint8_t* size); 
 
 #endif

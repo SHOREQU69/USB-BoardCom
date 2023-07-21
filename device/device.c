@@ -49,7 +49,7 @@ struct udev_device** get_udev_devices(const char *name)
 	path = udev_list_entry_get_name(dev_list_entry);
 	struct udev_device* dev = udev_device_new_from_syspath(udev, path);
 
- 	if(pos < MAX_UDEV_LIST_SIZE)
+	if(pos < MAX_UDEV_LIST_SIZE)
 	{    
 	    list[pos++] = dev;
 	}
@@ -69,16 +69,8 @@ struct udev_device** get_udev_devices(const char *name)
     return list;
 }
 
-char** get_ports(const char* port_type, struct udev_device **entry, uint8_t* size)
+char** get_ports(const char* port_type, struct udev_device **entry, char** ports, uint8_t* size)
 {
-    //generic maximum port length
-    const size_t MAX_PORT_SIZE = 20;
-
-    char** ports = malloc(MAX_UDEV_LIST_SIZE * sizeof(char*));
-
-    for(uint8_t i = 0; i < MAX_UDEV_LIST_SIZE; i++)
-	ports[i] = malloc(MAX_PORT_SIZE * sizeof(char));
-
     uint8_t pos = 0;
 
     //gets all valid ports
